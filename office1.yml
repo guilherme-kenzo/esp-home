@@ -29,7 +29,7 @@ captive_portal:
 
 sensor:
   - platform: dht
-    pin: 26
+    pin: 5
     model: DHT11
     temperature:
       name: "Temperatura da sala"
@@ -40,6 +40,10 @@ sensor:
 binary_sensor:
   - platform: gpio
     pin: 
-      number: 34
-      inverted: true
-    name: "Botão 1"
+      number: 4
+      mode:
+        input: true
+        pullup: true
+    filters:
+      - delayed_on: 100ms
+    name: "Botão Sala"
