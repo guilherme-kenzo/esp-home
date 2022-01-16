@@ -1,0 +1,37 @@
+esphome:
+  name: office2
+
+esp8266:
+  board: nodemcuv2
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: ""
+
+ota:
+  password: ""
+
+wifi:
+  ssid: !secret wifi_ssid_home
+  password: !secret wifi_password_home
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Office2 Fallback Hotspot"
+    password: "pLVKg3YSeLtR"
+
+captive_portal:
+
+sensor:
+  - platform: dht
+    model: DHT22
+    pin: D2
+    temperature:
+      name: "Temperatura da sala"
+    humidity:
+      name: "Umidade da sala"
+    update_interval: 10s
+
